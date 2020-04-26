@@ -1,4 +1,4 @@
-# Node Packer
+# Node Application Packer
 This repository includes files which are used to create an AMI (Amazon Machine Image) in AWS containing a node based application, NodeJs, Nginx, Npm, Pm2. With some tweaks, the files can also be used to create machine images in other cloud providers which will not be shown here.
 
 ## Pre-requisites
