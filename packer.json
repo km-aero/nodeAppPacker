@@ -47,6 +47,10 @@
         "type": "file",
         "source": "reverse-proxy.conf",
         "destination": "/home/ubuntu/"
+      },
+      {
+        "type": "shell",
+        "script": "provision.sh"
       }
     ]
 }
