@@ -1,44 +1,63 @@
-# IT Jobs Watch Data  
+# Sparta Node Sample App
 
-## Introduction
-The aim of this project is to create a simple service that can scrape useful data from ITJobswatch.
+## Description
 
-## Current Scope
-At present the app is set up to be cloned and used to simply scrape the below services:
+This app is intended for use with the Sparta Global Devops Stream as a sample app. You can clone the repo and use it as is but no changes will be accepted on this branch. 
 
-1. Home page top 30 job/roles / skills which can be found [here]()
+To use the repo within your course you should fork it.
 
-The aim will be to expand this to further services such as:
+The app is a node app with three pages.
 
-* Regular polling of pages and writing to a database for longer terms stats
-* Bespoke calls for specific job role data
+### Homepage
 
-And much more.
+``localhost:3000``
+
+Displays a simple homepage displaying a Sparta logo and message. This page should return a 200 response.
+
+### Blog
+
+``localhost:3000/posts``
+
+This page displays a logo and 100 randomly generated blog posts. The posts are generated during the seeding step.
+
+This page and the seeding is only accessible when a database is available and the DB_HOST environment variable has been set with it's location.
+
+### A fibonacci number generator
+
+``localhost:3000/fibonacci/{index}``
+
+This page has be implemented poorly on purpose to produce a slow running function. This can be used for performance testing and crash recovery testing.
+
+The higher the fibonacci number requested the longer the request will take. A very large number can crash or block the process.
+
+
+### Hackable code
+
+``localhost:3000/hack/{code}``
+
+There is a commented route that opens a serious security vulnerability. This should only be enabled when looking at user security and then disabled immediately afterwards
 
 ## Usage
-_Pre-Requisites_
-* Pycharm IDE
-* Python 3.x + installed
 
-### Installing packages
-The necessary packages needed to run this program should automatically be picked up by pycharm. You may find a a few pop ups within the IDE that state there are dependencies missing, if you simply install these through the IDE you should be set up correctly.  
+Clone the app
 
-### Running tests
+```
+npm install
+npm start
+```
 
-To test whether the program will work from your machine:
+You can then access the app on port 3000 at one of the urls given above.
 
- * Ensure the `config.ini` file has the test environment set to `live`
- * Click the `Terminal` icon which can be found on the menu in the bottom left of Pycharm.
-* Ensure you're in the root path of the project and type `python -m pytest tests/`
+## Tests
 
-This should execute the tests if any fail you may have issues with this program.
+There is a basic test framework available that uses the Mocha/Chai framework
 
-### Running and using the program
-To use the program simply right click on the `main.py` file and then click `Run 'main'`. This will run the command line user interface.
+```
+npm test
+```
 
-Follow the instructions to download via the various options given.
+The test for posts will fail ( as expected ) if the database has not been correctly setup.
 
-# Next steps
-* Adding a job details search option (essentially be able to search for a specific role and return the details in a CSV)
-* create a connected database for full deployment
-* Build a scheduler as part of a full deployment to poll and add to the database
+
+
+

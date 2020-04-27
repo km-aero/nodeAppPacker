@@ -42,11 +42,6 @@
         "type": "file",
         "source": "app",
         "destination": "/home/ubuntu/"
-      },
-      {
-        "type": "file",
-        "source": "reverse-proxy.conf",
-        "destination": "/home/ubuntu/"
       }
     ]
 }
